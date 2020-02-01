@@ -1,0 +1,121 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script type='text/babel'>
+
+     /*
+     In React, we've we have
+     - Builtin Components
+     - Custom Components
+     */
+
+     /*---Built-in Components-------
+     - For every HTML tag, React has created its own
+     element (component).
+
+     /*---Custom Components---------
+      -- Function Component
+      -- Class Component
+
+     Function Component
+     - We can encapuslate our UI logic in a function 
+     - Function name can be used as Tag then.
+     - Properties passed to tag are called 'props'   
+     - are also called stateless component
+
+     */
+
+
+        //Example 1:
+        function MyHeading(props){
+            var e= <h3>{props.name}</h3>
+            return e;
+        }        
+
+        //Here el is again 'React' element but of type 'MyHeading'
+        var el = <MyHeading name="Bilal Shahzad" />
+
+
+        //Example 2:
+        /*
+        function Profile(props){
+            var e = <div class='mycontainer'>
+                <h3>{props.name}</h3>
+                <a href={props.url}>{props.urlText}</a>
+            </div>
+
+            return e;
+        }
+        
+        el = <Profile name="Bilal Shahzad"
+                    url="https://www.youtube.com/c/LearnInUrdu139"
+                    urlText="Learning In Urdu" />
+
+        */
+
+
+
+        //Example 3:
+        /*
+        function SpecialProfile(props){
+            return <div class='mycontainer'>
+                    <MyHeading name={props.name} />
+                    <a href={props.url}>{props.urlText}</a>
+                  </div>
+
+        }
+
+        el = <SpecialProfile name="Khurram Shahzad"
+                    url="https://www.youtube.com/c/LearnInUrdu139"
+                    urlText="Learning In Urdu" />
+
+
+        */
+
+        
+        //Example 4:
+        /*
+        var arr = [];
+        for(var i=0;i<5;i++){
+            var o = <MyHeading name={'Bilal Shahzad ' + i} />
+            arr.push(o);
+        }
+
+        el = arr;
+
+        */
+
+
+        //Example 5:
+        /*
+        function LikeButton(props){
+            var likes = props.initalLikes;
+
+            function onLikeClicked(){
+                likes++;
+                console.log(likes);
+            }
+
+            var comp_ui = <div>
+                            <span>{likes}</span>
+                            <a href='#' onClick={onLikeClicked}>Like </a>
+                          </div>
+            return comp_ui;
+        }
+
+        el = <LikeButton initalLikes='3' />
+        */
+
+        
+
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>
+</body>
+</html>

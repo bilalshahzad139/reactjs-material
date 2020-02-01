@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+    <script >
+        //Shallow Merging using Object.assign
+        
+        //Object.assign(target,source)
+
+        var state = {id:1,name:"Bilal", age:100,address:{city:'lahore'}};
+        var changeObj = {age:200,nic:'1234', address:{postcode:'122'}};
+                
+        /*
+        Following will copy properties from source to target
+        It adds if a property exists in source but not in target
+        It overwrite if a property exists in target
+        It returns target object after changes.
+        Here 'state' is target & 'changeObj' is source
+        */             
+
+        state = Object.assign(state,changeObj);
+
+        //Can you check what happened to 'address' property in target?
+        //Answer: It found 'address' property in target and 'overwrote' it
+
+        console.log(state);
+    </script>
+</body>
+</html>

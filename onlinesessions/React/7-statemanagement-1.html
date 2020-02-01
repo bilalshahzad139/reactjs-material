@@ -1,0 +1,56 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <script type='text/babel'>
+        //Class component has 'state' property to maintain component state
+        //initialize state in constructure
+        //setState() method to update state
+
+        /*Requirement: 
+        Create a LikeButton, It should have one button
+        and one label. When button is clicked, like count
+        should be increased by 1.
+        */
+        class LikeButton extends React.Component{
+            
+            constructor(props){
+                super(props);
+                this.state = {likes : Number(this.props.initalLikes)};
+            }
+
+            onLikeClicked = (e)=>{
+                e.preventDefault();
+                
+                this.setState((currState)=>{
+                    return {likes:currState.likes + 1};
+                });
+            }
+
+            render(){
+                var comp_ui = <div>
+                            <span>{this.state.likes}</span>
+                            <a href='#' onClick={this.onLikeClicked}>Like </a>
+                          </div>
+                return comp_ui;
+            }
+        }
+
+        class MyApp extends React.Component{
+            render(){
+                return <div>
+                        <h3>Bilal Shahzad</h3>
+                        <LikeButton initalLikes='3' />
+                    </div>
+            }
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>
+</body>
+</html>

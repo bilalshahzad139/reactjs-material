@@ -1,0 +1,22 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <script >
+        //Shallow Merging using spread operator
+
+        var state = {id:1,name:"Bilal", age:100,address:{city:'lahore'}};
+        var changeObj = {age:200,nic:'1234', address:{postcode:'122'}};
+        
+        //Following will combine both objects and return new object
+        //It adds if a property exists in second but not ine one
+        //It overwrite if a property exists in first
+        state= {...state,...changeObj}; 
+
+        //state.address = {...state.address,...changeObj.address};
+        console.log(state);
+</script>
+</body>
+ 
+</html>

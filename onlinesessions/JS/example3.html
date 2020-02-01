@@ -1,0 +1,24 @@
+<html>
+<head>
+   
+</head>
+<body>
+    <div id="app">
+        <span id="counter">0</span>
+        <button id="btnTest" >Increase Count</button>
+    </div>
+
+    <script >
+        var counter = 0;
+        var btn = document.getElementById('btnTest');
+
+        btn.onclick = function(){
+            var t = document.getElementById('counter');
+            counter++;
+            t.innerText = counter; 
+        }
+        
+    </script>
+</body>
+ 
+</html>

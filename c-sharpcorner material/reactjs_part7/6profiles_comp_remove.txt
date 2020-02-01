@@ -1,0 +1,9 @@
+RemoveProfileHandler(id){
+                //Find and remove element by using id
+                //There can be multiple ways to do this
+                this.setState((currState)=>{
+                    //lets use filter and find result without id
+                    var updatedData = currState.data.filter((obj)=> obj.id != id );
+                    return {data:updatedData};
+                });
+}

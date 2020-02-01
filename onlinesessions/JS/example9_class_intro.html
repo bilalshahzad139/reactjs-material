@@ -1,0 +1,48 @@
+<html>
+<head>
+</head>
+<body>
+    <script >
+        class Person {
+            id =0; //with initialization
+            name;  //without initialization
+            constructor(i,n,a){
+                this.id = i;
+                this.name = n;
+                this.age = a; //will become part of instances
+            }
+
+            show(){
+                console.log('ID is:' + this.id);
+                console.log('Name is:' + this.name);
+                console.log('Age is:' + this.age);
+            }
+
+            //Function with 'function keyword'
+            show2 = function(){
+                console.log('valid function');
+            }
+        }
+
+        //obj will have three properties (id,name & age)
+        var obj = new Person(1,"Bilal",100);
+        obj.show();
+        obj.show2();
+
+        class Employee extends Person {
+            constructor(i,n,a,comp){
+                super(i,n,a);
+                this.company = comp;
+            }
+            show(){
+                super.show(); //call parent show method
+                console.log('Company is:' + this.company);
+            }
+        }
+        console.log('--------------------');
+        var emp = new Employee(2,"Bilal S",100,'LearningInUrdu.pk');
+        emp.show();
+    </script>
+</body>
+ 
+</html>

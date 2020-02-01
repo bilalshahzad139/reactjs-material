@@ -1,0 +1,4 @@
+this.setState({counter: 0 + 1});
+this.setState({counter: 0 + 1});
+this.setState({counter: 0 + 1});
+this.setState({counter: 0 + 1});

@@ -1,0 +1,11 @@
+function MyApp(){
+            var h = <h3>Profiles</h3>
+
+            //returning multiple elements without parent
+            return (
+                [
+                h,
+            <Profile name="Bilal Shahzad" url="https://www.youtube.com/c/LearnInUrdu139" urlText="Learn in Urdu Tutorials" />,
+            <Profile name="Faisal Shahzad" url="https://www.youtube.com/c/LearnInUrdu139" urlText="Learn in Urdu Tutorials 2" />
+                ]);
+        }

@@ -1,0 +1,20 @@
+<script type='text/babel'>
+        function MyName(props){
+            return <h3>{props.name}</h3>
+        }
+        
+        //Created a top level component
+        function MyApp(){
+            return (
+                <div class="maincontainer">
+                    {/*Correct*/ }
+                    <MyName name="Bilal Shahzad 1" />
+
+                    {/*will give error*/ }
+                    <myName name="Bilal Shahzad 2" />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>

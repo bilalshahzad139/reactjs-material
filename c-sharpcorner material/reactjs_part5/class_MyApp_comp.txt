@@ -1,0 +1,39 @@
+<script type='text/babel'>
+function MyApp(){
+            
+            //hard coded data for now
+            var data = [
+                {id: 1, name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {id: 2, name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                {id: 3, name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                {id: 4, name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                ];
+            
+            return (
+                <div class="maincontainer">
+                    <Profiles data={data} />
+                </div>
+            );
+}
+
+class MyApp extends React.Component{
+            data = [
+                {id: 1, name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {id: 2, name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                {id: 3, name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                {id: 4, name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                ];
+            
+            constructor(props){
+                super(props);
+            }
+
+            render(){
+                return (
+                <div class="maincontainer">
+                    <Profiles data={this.data} />
+                </div>
+            );
+            }
+        }
+    </script>

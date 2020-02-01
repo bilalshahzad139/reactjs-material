@@ -1,0 +1,28 @@
+<body>
+    <div id="app">
+    </div>
+    <script>
+        function MyName(props){
+            return React.createElement('h3',null,props.name);
+        }
+        function ProfileLink(props){
+            var url = props.url;
+            var txt = props.urlText;
+            return React.createElement('a',{href:props.url},txt);
+        }
+        
+        //Create name & profile elements
+        var nameComp = React.createElement(MyName, {name:"Bilal Shahzad"});
+        var dataToPass = {url:"https://www.youtube.com/c/LearnInUrdu139",urlText: "Learn in Urdu Tutorials"};
+        var profileComp = React.createElement(ProfileLink, dataToPass);
+
+        //create div element to hold name & profile elements
+        var el = React.createElement(
+            'div'
+            ,{class:'mycontainer'}
+            ,nameComp
+            ,profileComp);
+
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>
+</body>

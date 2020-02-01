@@ -1,0 +1,11 @@
+<script>
+        var arr = [1,2,3,4];
+        var res = arr.map(function(value,index,Arr){            
+            if(value%2 == 0)
+                return 'even';
+            else
+                return 'odd';
+        });
+        console.log(res);
+        //output will be Array: ["odd", "even", "odd", "even"]
+    </script>

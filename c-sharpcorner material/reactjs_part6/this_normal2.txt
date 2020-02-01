@@ -1,0 +1,19 @@
+<script >
+        class Person{
+            a = 10;
+            constructor(){
+            }
+            show(){
+                console.log('value of a is:' + this.a);
+            }
+        }
+
+        var obj = new Person();
+        //'this' refers to 'obj' and 'obj' has a = 10
+        obj.show(); //output will be: '10'
+
+        //func now points to same show function
+        var func = obj.show;
+        func(); //Error as 'this' is undefined
+
+    </script>

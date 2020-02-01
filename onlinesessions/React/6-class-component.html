@@ -1,0 +1,136 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script type='text/babel'>
+
+     /*
+     In React, we've we have
+     - Builtin Components
+     - Custom Components
+     */
+
+     /*---Built-in Components-------
+     - For every HTML tag, React has created its own
+     element (component).
+
+     /*---Custom Components---------
+      -- Function Component
+      -- Class Component
+
+     Class Component
+     - We can encapuslate our UI logic in a class
+     - Class name can be used as Tag then.
+     - Properties passed to tag are called 'props'   
+     - Stateful
+
+     */
+        //Example 1:
+        class MyHeading extends React.Component
+        {
+            constructor(props){
+                super(props);
+            }
+
+            render(){
+                return <h3>{this.props.name}</h3>
+            }
+        }        
+
+        //Here el is again 'React' element but of type 'MyHeading'
+        var el = <MyHeading name="Bilal Shahzad" />
+
+
+        //Example 2:
+        /*
+        class Profile extends React.Component{
+            constructor(props){
+                super(props)
+            }
+
+            render(){
+                var e = <div class='mycontainer'>
+                    <h3>{this.props.name}</h3>
+                    <a href={this.props.url}>{this.props.urlText}</a>
+                </div>
+                return e;
+            }
+        }
+        
+        el = <Profile name="Bilal Shahzad"
+                    url="https://www.youtube.com/c/LearnInUrdu139"
+                    urlText="Learning In Urdu" />
+
+        */
+
+
+        //Example 3:
+        /*
+        class SpecialProfile extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return <div class='mycontainer'>
+                    <MyHeading name={this.props.name} />
+                    <a href={this.props.url}>{this.props.urlText}</a>
+                  </div>
+            }
+        }
+
+        el = <SpecialProfile name="Khurram Shahzad"
+                    url="https://www.youtube.com/c/LearnInUrdu139"
+                    urlText="Learning In Urdu" />
+
+        */
+
+        
+        //Example 4:
+        /*
+        var arr = [];
+        for(var i=0;i<5;i++){
+            var o = <MyHeading name={'Bilal Shahzad ' + i} />
+            arr.push(o);
+        }
+
+        el = arr;
+
+        */
+
+
+        //Example 5:
+        /*
+        class LikeButton extends React.Component{
+            
+            constructor(props){
+                super(props);
+                this.likes = this.props.initalLikes;
+            }
+
+            onLikeClicked = ()=>{
+                this.likes++;
+                console.log(this.likes);
+            }
+
+            render(){
+                var comp_ui = <div>
+                            <span>{this.likes}</span>
+                            <a href='#' onClick={this.onLikeClicked}>Like </a>
+                          </div>
+                return comp_ui;
+            }
+        }
+
+        el = <LikeButton initalLikes='3' />
+        */
+
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>
+</body>
+</html>

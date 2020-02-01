@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script type='text/babel'>
+        //var el = React.createElement('h3', { id: 'myheader', class: 'test' }, "Bilal Shahzad");
+
+        //JSX -> JavaScript XML or JavaScript Extension
+        //Write HTML (like syntax) in JavaScript
+
+        //Create React element using JSX syntax
+
+        var el = <h3 id='myheader' class='test'>Bilal Shahzad</h3>
+
+        var name ="Bilal Shahzad";
+        var url = "https://www.youtube.com/c/LearnInUrdu139";
+        var urlText ="Learning In Urdu";
+        
+        //Use curly braces to mix JS in HTML
+        
+        //Example 1:
+        //el = <h3>{name}</h3>
+
+        
+        //Example 2:
+        /*
+        el = <div class='mycontainer'>
+                <h3>{name}</h3>
+                <a href={url}>{urlText}</a>
+            </div>;
+        */
+
+        //Example 3:
+        /*
+        el = [];
+        el.push(<h3>Khurram Shahzad</h3>);
+        el.push(<h3>Bilal Shahzad</h3>);
+        el.push(<h3>Waqas Shahzad</h3>);
+        el.push(<h3>Faisal Shahzad</h3>);
+        */
+
+        //Example 4:
+        /*
+        var d = <span>ReactJS </span>
+        var b = true;
+        if(b)    
+            el = <div>
+                    {d}
+                </div>
+        */
+
+
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>
+</body>
+</html>

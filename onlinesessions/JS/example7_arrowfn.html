@@ -1,0 +1,41 @@
+<html>
+<head>
+   
+</head>
+<body>
+
+    <script>  
+  
+        var f1 = () => console.log('Arrow function without body');  
+          
+        var f2 = () => {  
+            console.log('Arrow function with body');  
+        }  
+  
+        //Arrow function which is taking input parameters & returning their sum  
+        var f3 = (a,b) => a+b;  
+  
+        f3(5,10);  
+  
+        //Arrow function which is taking input parameter & returning their sum  
+        var f4 = (a,b) => {  
+            return a+ b;  
+        }  
+  
+        f4(15,20);  
+  
+        //Arrow function which is taking single input parameter, parenthesis can be skipped  
+        //Following function 'f5' is taking a paramter and returning by multiplying to 5.  
+          
+        var f5 = a => a*5;  
+      
+        /* Non-Arrow version of above function 
+        var f5 = function(a){ 
+            return a*5; 
+        } 
+        */  
+  
+    </script>  
+</body>
+ 
+</html>

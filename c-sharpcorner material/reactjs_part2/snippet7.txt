@@ -1,0 +1,27 @@
+//create object to pass as props
+        var personData = {
+            name : "Bilal Shahzad", 
+            url:"https://www.youtube.com/c/LearnInUrdu139",
+            urlText: "Learn in Urdu Tutorials"
+        };
+        
+        //create profile element
+        var profile1 = React.createElement(Profile,personData);
+
+        //create object to pass as props
+        var personData2 = {
+            name : "Faisal Shahzad", 
+            url:"https://www.youtube.com/c/LearnInUrdu139",
+            urlText: "Learn in Urdu Tutorials 2"
+        };
+        
+        //create profile element
+        var profile2 = React.createElement(Profile,personData2);
+
+        var el = React.createElement(
+            'div'
+            ,{class:'maincontainer'}
+            ,profile1
+            ,profile2);
+
+        ReactDOM.render(el,document.getElementById('app'));

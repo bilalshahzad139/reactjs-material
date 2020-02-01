@@ -1,0 +1,26 @@
+<html>
+<head>
+   
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script >
+        //Create h3 element and add in page
+        var el = document.createElement('h3');
+        el.setAttribute('id','myheader');
+        el.setAttribute('class','test');
+        el.innerText = "Bilal Shahzad";
+        
+        el.onclick = function(){
+            alert('hello');
+        }
+
+        var appEl = document.getElementById('app');
+        appEl.appendChild(el);
+        
+    </script>
+</body>
+ 
+</html>

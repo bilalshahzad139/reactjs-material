@@ -1,0 +1,20 @@
+<script type='text/babel'>
+        function HelloFn(e){
+                alert('hello 4');
+        }
+
+        function MyApp(){
+            return (
+                <div class="maincontainer">
+                    {/*
+                    Following is wrong as we are not providing 
+                    a function to onClick but result of its calling.
+                    We'll see an alert on page load
+                  */}
+
+                    <button onClick={HelloFn()}>Count Me In 4</button>
+                </div>
+            );
+        }
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+</script>

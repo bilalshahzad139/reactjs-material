@@ -1,0 +1,10 @@
+<script type='text/babel'>
+        function MyApp(){
+            return (
+                <div class="maincontainer">
+                    <button onClick={function(){alert('hello');}}>Count Me In 1</button> 
+                </div>
+            );
+        }
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+</script>

@@ -1,0 +1,60 @@
+<script type='text/babel'>
+        
+        function Profile(props){
+            var counter = 0;
+            function handleCountMe(id){
+                counter++;
+                if(counter >= 3){
+                    if(props.onLimitCross){
+                        props.onLimitCross(id, counter);
+                    }
+                }
+            }
+            return (
+                <div class="mycontainer" >
+                    <h3>{props.name}</h3>
+                    <a href={props.url}>{props.urlText}</a>;
+                    <button onClick={()=>(handleCountMe(props.eid)) } >Count Me In </button>
+                </div>
+            );
+        }
+
+        function Profiles(props){
+            function LimitCrossHandler(id, counter){
+                alert('Current value of Counter for id:' + id + ' is: ' + counter);
+            }
+            //Note we hadn't used {} as function body but used () to show body of arrow function
+            var profilesElem = props.data.map(
+                    (obj)=>(
+                        <Profile 
+                        key={obj.id} 
+                        eid={obj.id} 
+                        name={obj.name} 
+                        url={obj.url} 
+                        urlText={obj.urlText} 
+                        onLimitCross={LimitCrossHandler}
+                        />)
+                );
+            return profilesElem;
+        }
+       
+        //Created a top level component
+        function MyApp(){
+            
+            //hard coded data for now
+            var data = [
+                {id: 1, name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {id: 2, name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                {id: 3, name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                {id: 4, name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                ];
+            
+            return (
+                <div class="maincontainer">
+                    <Profiles data={data} />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>

@@ -1,0 +1,32 @@
+<script >
+        //Let's create a function in obj which creates & returns an arrow function, little confusing, right?
+        var obj = {
+            a: 10,
+            getFn: function (){
+                //What is 'this' here? 
+                //Following arrow function will be 'bound' with 'this' who is owner or creator
+                return () => {
+                    console.log(this.a);
+                };            
+             }
+        };
+
+        //getFn() will create & return an arrow function 
+        //but now 'func' is bound to 'obj' as arrow function is created in its 'context'
+        var func = obj.getFn();
+        func(); //it will give 10
+
+        var obj2 = {
+            a: 20,
+            show: func
+        };
+
+        //Guess its output
+        obj2.show(); //OR func.call(obj2);
+
+        /*
+        Its output should be 20, right?
+        But it will be 10.
+        'func' was created with context of 'obj' so this refers to 'obj'
+        */
+    </script>

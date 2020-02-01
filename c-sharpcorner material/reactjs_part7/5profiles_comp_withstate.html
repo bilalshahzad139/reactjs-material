@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .mycontainer {
+          border:1px solid red;  
+          width: 200px;
+          float:left;
+          margin-left:3px;
+          padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        
+        class Profiles extends React.Component{
+                mydata =[
+                        {id: 1, name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                        {id: 2, name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                        {id: 3, name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                        {id: 4, name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                    ];
+            constructor(props){
+                super(props);
+                this.state = {data:this.mydata};
+            }
+            RemoveProfileHandler(id){
+                alert(id);
+            }
+            GetProfiles(){
+
+                return this.state.data.map((obj)=>{
+                            return (
+                             <div class="mycontainer" key={obj.id}>
+                                <h3>{obj.name}</h3>
+                                <a href={obj.url}>{obj.urlText}</a>;
+                                <button onClick ={()=> this.RemoveProfileHandler(obj.id)}>Remove </button>
+                            </div>
+                            );
+                    });
+            }//end of GetProfiles
+
+            render(){
+                return (
+                <div  >
+                    {this.GetProfiles()}
+                </div>
+            );
+            }
+        }
+
+        ReactDOM.render(<Profiles />,document.getElementById('app'));
+    </script>
+</body>
+ 
+</html>

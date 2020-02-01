@@ -1,0 +1,86 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        
+        class Counter extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {counter:0,dummy:0};
+            }
+            handleCountMe(){
+
+                //Case 1 - Will not update UI
+                //this.state.counter++;
+                
+                
+                //Case 2 - setState with Object
+                //this.setState({counter: this.state.counter + 1});
+
+
+                //Case 3 - setState with Object multiple times (batched)
+                // this.setState({counter: this.state.counter + 1});
+                // this.setState({counter: this.state.counter + 1});
+                // this.setState({counter: this.state.counter + 1});
+                // this.setState({counter: this.state.counter + 1});
+
+
+                //Case 4 - setState with updaterFn
+                // this.setState(function(currState, props){
+                //     return {counter: currState.counter + 1};
+                // });
+
+
+                //Case 5 - setState with updaterFn multiple times 
+                // this.setState(function(currState, props){
+                //     return {counter: currState.counter + 1};
+                // });
+                // this.setState(function(currState, props){
+                //     return {counter: currState.counter + 2};
+                // });
+
+
+                //Case 6: setState with updaterFn & callbackFn
+                // this.setState(function(currState, props){
+                //     return {counter: currState.counter + 1};
+                // },function(){
+                //     alert('in callback fn' + this.state.counter);
+                // });
+                
+                // alert('outside ' + this.state.counter);
+
+
+
+                //Case 7: Updating state directly and using setState to request React for UI update
+                // this.state.counter++;
+                // this.setState({});
+
+                //Case 8: Update state inside Update & return empty object
+                // this.setState(function(currState, props){
+                //     currState.counter++;
+                //     return {};                    
+                // });
+
+            }
+
+            render(){
+                return (
+                <div class="mycontainer" >
+                    <div>{this.state.counter}</div>
+                    <button onClick={()=>(this.handleCountMe()) } >Count Me In </button>
+                </div>
+            );
+            }
+        }
+
+        ReactDOM.render(<Counter />,document.getElementById('app'));
+    </script>
+</body>
+</html>

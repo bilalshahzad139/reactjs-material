@@ -1,0 +1,11 @@
+<script>
+        function ProfileLink(props){
+            var url = props.url;
+            var txt = props.urlText;
+            return React.createElement('a',{href:props.url},txt);
+        }
+        var dataToPass = {url:"https://www.youtube.com/c/LearnInUrdu139",urlText: "Learn in Urdu Tutorials"};
+        var el = React.createElement(ProfileLink, dataToPass);
+
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>

@@ -1,0 +1,46 @@
+<script type='text/babel'>
+        function MyName(props){
+            return <h3>{props.name}</h3>
+        }
+        function ProfileLink(props){
+            return <a href={props.url}>{props.urlText}</a>;
+        }
+        
+        function Profile(props){
+            return (
+                <div class="mycontainer">
+                    <MyName name={props.name} />
+                    <ProfileLink url={props.url} urlText={props.urlText} />
+                </div>
+            );
+        }
+
+        function Profiles(props){
+            var data = props.data;
+            //create an array to hold profile objects
+            var result = [];
+            for(var i=0;i<data.length;i++){
+                var obj = data[i];
+                result.push(<Profile name={obj.name} url={obj.url} urlText={obj.urlText} />)
+            }
+            return result;
+        }
+       
+        //Created a top level component
+        function MyApp(){
+            
+            //hard coded data for now
+            var data = [
+                {name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"}
+                ];
+            
+            return (
+                <div class="maincontainer">
+                    <Profiles data={data} />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>

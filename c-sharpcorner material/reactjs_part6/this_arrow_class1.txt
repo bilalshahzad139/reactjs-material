@@ -1,0 +1,15 @@
+<script >
+        class Person{
+            a = 10;
+            show = (msg) => {
+                console.log(msg + ' ' + this.a);
+            }
+
+        }
+        var obj = new Person();
+        obj.show('with object:');//output will be:10
+
+        var func = obj.show;
+        func('without any object:'); //output will be:10
+        
+    </script>

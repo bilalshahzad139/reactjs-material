@@ -1,0 +1,7 @@
+<script>
+        function MyName(props){
+            return React.createElement('h3',{id:'myheader',class:'test'},props.name);
+        }
+        var el = React.createElement(MyName, {name:"Bilal Shahzad"});
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>

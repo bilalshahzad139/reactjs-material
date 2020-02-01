@@ -1,0 +1,29 @@
+<script type='text/babel'>
+
+        //Creating a Function Component
+        function Profile(props){
+            return (
+                <div class="mycontainer" >
+                    <h3>{props.name}</h3>
+                    <a href={props.url}>{props.urlText}</a>;
+                </div>
+                );
+        }
+        
+        //Creating a Class Component
+        class Profile extends React.Component{
+                        
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return (
+                <div class="mycontainer" >
+                    <h3>{this.props.name}</h3>
+                    <a href={this.props.url}>{this.props.urlText}</a>;
+                </div>
+                );
+            }
+        }
+
+</script>

@@ -1,0 +1,30 @@
+ class Profile extends React.Component{
+            constructor(props1){
+                super(props1);
+            }
+            CountClickHandler(e){
+                //What is 'this' here?
+                alert(this.props.eid);
+            }
+            render(){
+                return (
+                <div class="mycontainer" >
+                    <h3>{this.props.name}</h3>
+                    <a href={this.props.url}>{this.props.urlText}</a>
+                    <button onClick={
+                        function()
+                            {
+                                alert(this.props.eid);
+                            }
+                        } >Count Me In 1</button>
+                    <button onClick={this.CountClickHandler} >Count Me In 2</button>
+                    <button onClick={
+                            ()=> {
+                                var myObj = this;
+                                myObj.CountClickHandler()
+                            }
+                        } >Count Me In 3</button>
+                </div>
+                );
+            }
+        }

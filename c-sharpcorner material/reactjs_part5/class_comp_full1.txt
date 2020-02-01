@@ -1,0 +1,58 @@
+<script type='text/babel'>
+        class Profile extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return (
+                <div class="mycontainer" >
+                    <h3>{this.props.name}</h3>
+                    <a href={this.props.url}>{this.props.urlText}</a>;
+                </div>
+                );
+            }
+        }
+
+        class Profiles extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                var profilesElem = this.props.data.map(
+                    (obj)=>(
+                        <Profile 
+                        key={obj.id} 
+                        eid={obj.id} 
+                        name={obj.name} 
+                        url={obj.url} 
+                        urlText={obj.urlText} 
+                        />)
+                );
+            return profilesElem;
+            }
+        }
+
+        //Created a top level component
+        class MyApp extends React.Component{
+            data = [
+                {id: 1, name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {id: 2, name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                {id: 3, name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                {id: 4, name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                ];
+            
+            constructor(props){
+                super(props);
+            }
+
+            render(){
+                return (
+                <div class="maincontainer">
+                    <Profiles data={this.data} />
+                </div>
+            );
+            }
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>

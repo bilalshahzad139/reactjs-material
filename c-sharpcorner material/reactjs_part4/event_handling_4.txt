@@ -1,0 +1,16 @@
+<script type='text/babel'>
+        function AnchClickHandler(e){
+                //To Stop default action, use e.preventDefault()
+                e.preventDefault();
+                alert('link is clicked');
+        }
+
+        function MyApp(){
+            return (
+                <div class="maincontainer">
+                     <a href='https://www.youtube.com/c/LearnInUrdu139' onClick={AnchClickHandler} > LearnInUrdu139 </a> 
+                </div>
+            );
+        }
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+</script>

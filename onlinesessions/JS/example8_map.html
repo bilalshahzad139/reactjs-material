@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <script>
+        function Test(value, index, Arr) {
+            return 'v is ' + value;
+        }
+        var arr = [1, 2, 3, 4];
+        var res = arr.map(Test)
+        console.log(res);
+        //output will be Array: ["v is 1", "v is 2", "v is 3", "v is 4"]
+
+
+
+        //Using Anonymous Function  
+        var arr = [1,2,3,4];  
+        var res = arr.map(function(value,index,Arr){              
+            return 'v is ' + value;  
+        });  
+        console.log(res);  
+        //output will be Array: ["v is 1", "v is 2", "v is 3", "v is 4"]  
+
+
+        var arr2 = [1,2,3,4];  
+        var res2 = arr2.map(function(value,index,Arr){              
+            if(value%2 == 0)  
+                return 'even';  
+            else  
+                return 'odd';  
+        });  
+        console.log(res2);  
+        //output will be Array: ["odd", "even", "odd", "even"]  
+
+    </script>
+</body>
+
+</html>

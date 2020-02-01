@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script type='text/babel'>
+
+        //Example 1:
+        function ClickHandler(e){
+            alert('clicked');
+        }
+        function ChangeHandler(e){
+            //e.target is event raiser
+            alert(e.target.value);
+        }
+
+        function LinkClickHandler(e){
+            e.preventDefault();//To stop link default click behavior
+            alert('link is clicked');
+        }
+
+        var el = <div>
+                    <button onClick={ClickHandler}>Click Me </button>        
+                    
+                    <button onClick={function(){
+                        alert('hello from anon function');
+                    }}>Click Me Anon </button>
+
+                    <input type="text" onChange={ChangeHandler} />
+                    <a  onClick={LinkClickHandler} href='https://www.youtube.com/c/LearnInUrdu139'> Click Me </a>
+                </div>;
+        
+
+        
+
+
+        ReactDOM.render(el,document.getElementById('app'));
+    </script>
+</body>
+</html>

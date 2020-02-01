@@ -1,0 +1,14 @@
+<script type='text/babel'>
+        function onChangeHandler(e){
+                console.log(e.target.value);
+        }
+
+        function MyApp(){
+            return (
+                <div class="maincontainer">
+                    <input type="text" onChange={onChangeHandler} />
+                </div>
+            );
+        }
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+</script>

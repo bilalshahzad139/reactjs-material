@@ -1,0 +1,19 @@
+<script type='text/babel'>
+        function FnWithParam(val){
+            alert('Value is:' + val)
+        }
+
+        function MyApp(){
+            var v = "Hello world";
+
+            return (
+                <div class="maincontainer">
+                    {/*Let's call FnWithParam but how to pass some data to it? 
+                    Use Anonymous or arrow function and call actual function inside it 
+                    */}
+                    <button onClick={() => (FnWithParam(v))}>Count Me In 3</button> 
+                </div>
+            );
+        }
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+</script>

@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        
+        class Counter extends React.Component{
+            counter = 0;
+            handleCountMe(){
+                this.counter++;
+                alert(this.counter);
+            }
+
+            render(){
+                return (
+                <div class="mycontainer" >
+                    <div>{this.counter}</div>
+                    <button onClick={()=>(this.handleCountMe()) } >Count Me In </button>
+                </div>
+            );
+            }
+        }
+
+        ReactDOM.render(<Counter />,document.getElementById('app'));
+    </script>
+</body>
+</html>

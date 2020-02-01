@@ -1,0 +1,15 @@
+<script type='text/babel'>
+        function HelloFn(e){
+            //Here e is React Event Object
+            alert('hello');
+        }
+
+        function MyApp(){
+            return (
+                <div class="maincontainer">
+                    <button onClick={HelloFn}>Count Me In 2</button>
+                </div>
+            );
+        }
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+</script>

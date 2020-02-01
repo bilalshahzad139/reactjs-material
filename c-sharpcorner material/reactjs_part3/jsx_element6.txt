@@ -1,0 +1,42 @@
+<script type='text/babel'>
+        function MyName(props){
+            return <h3>{props.name}</h3>
+        }
+        function ProfileLink(props){
+            return <a href={props.url}>{props.urlText}</a>;
+        }
+        
+        function Profile(props){
+            return (
+                <div class="mycontainer">
+                    <MyName name={props.name} />
+                    <ProfileLink url={props.url} urlText={props.urlText} />
+                </div>
+            );
+        }
+
+        function Profiles(props){
+            //Note we hadn't used {} as function body but used () to show body of arrow function
+            return props.data.map((obj)=>(<Profile name={obj.name} url={obj.url} urlText={obj.urlText} />));
+        }
+       
+        //Created a top level component
+        function MyApp(){
+            
+            //hard coded data for now
+            var data = [
+                {name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                {name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                {name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                ];
+            
+            return (
+                <div class="maincontainer">
+                    <Profiles data={data} />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>

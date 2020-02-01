@@ -1,0 +1,9 @@
+<script>
+function Test(value,index,Arr){            
+            return 'v is ' + value;
+        }
+        var arr = [1,2,3,4];
+        var res = arr.map(Test)
+        console.log(res);
+        //output will be Array: ["v is 1", "v is 2", "v is 3", "v is 4"]
+<script>

@@ -1,0 +1,35 @@
+<script type='text/babel'>
+function Profiles(props){
+            var profilesElem = props.data.map(
+                    (obj)=>(
+                        <Profile 
+                        key={obj.id} 
+                        eid={obj.id} 
+                        name={obj.name} 
+                        url={obj.url} 
+                        urlText={obj.urlText} 
+                        />)
+                );
+            return profilesElem;
+        }
+
+    class Profiles extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                var profilesElem = this.props.data.map(
+                    (obj)=>(
+                        <Profile 
+                        key={obj.id} 
+                        eid={obj.id} 
+                        name={obj.name} 
+                        url={obj.url} 
+                        urlText={obj.urlText} 
+                        />)
+                );
+            return profilesElem;
+            }
+        }
+
+</script>

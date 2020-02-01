@@ -1,0 +1,27 @@
+<script >
+        var obj = {
+            a: 10,
+            show: function (){
+                console.log(this);// Check what it is showing
+                console.log(this.a);  
+             }
+        };
+
+        obj.show(); //output will be: 10
+        
+        var func = obj.show;
+        //func is being called without a caller means at global scope (i.e. Window object in browser)
+        func(); //output will be: undefined, 
+        
+        console.log('---------------------');
+        
+        //Let's update show with 'bind'
+        //bind will create a new function and 'this' will be whatever we are passing to it.
+        obj.show = obj.show.bind(obj)
+        obj.show(); //output will be: 10
+
+        var func2 = obj.show;
+
+        func2(); //output will be: 10
+
+    </script>

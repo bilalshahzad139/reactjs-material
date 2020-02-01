@@ -1,0 +1,71 @@
+<html>
+<head>
+    <style>
+        .mycontainer {
+          border:1px solid red;  
+          width: 200px;
+          float:left;
+          margin-left:3px;
+          padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+
+    <script >
+        var mydata = [
+                {id: 1, name:"Bilal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials"},
+                {id: 2, name:"Faisal Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 2"},
+                {id: 3, name:"Waqas Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 3"},
+                {id: 4, name:"Khurram Shahzad",url:"https://www.youtube.com/c/LearnInUrdu139",urlText:"Learn in Urdu Tutorials 4"}
+                ];
+
+        /*template we want to create for each profile
+             <div class="mycontainer" >
+                    <h3>{name}</h3>
+                    <a href={url}>{urlText}</a>;
+                    <button onclick="alert('hello');"} >Count Me In </button>
+             </div>
+
+        */
+
+        for(var i=0;i<mydata.length;i++){
+            var obj = mydata[i];
+
+            //an in-memory div element
+            var div = document.createElement('div');
+            div.setAttribute('class','mycontainer');
+
+            //create in-memory h3 element and add in div
+            var h3 = document.createElement('h3');
+            h3.innerText = obj.name;
+            div.appendChild(h3);
+
+            //create in-memory a element and add in div
+            var ael = document.createElement('a');
+            ael.innerText = obj.urlText;
+            ael.setAttribute('href',obj.url);
+            div.appendChild(ael);
+
+            //create in-memory button element and add in div
+            var btn = document.createElement('button');
+            btn.innerText = "Count Me In";
+            btn.onclick = function(){
+                alert('hello');
+            };
+            div.appendChild(btn);
+
+            //append div in some DOM element
+            var appEl = document.getElementById('app');
+            appEl.appendChild(div);
+
+        }
+        
+        
+    </script>
+</body>
+ 
+</html>

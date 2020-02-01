@@ -1,0 +1,23 @@
+<script >
+        var obj ={
+            a: 10,
+            show: function(){
+                alert('value of a is:' + this.a);
+            }
+        }
+
+        //'this' refers to 'obj' and 'obj' has a = 10
+        obj.show(); //output will be: '10'
+
+        //func now points to same show function
+        var func = obj.show;
+
+        var obj2 = {
+            a:20
+        }
+        //we can call a function using 'call' method by passing the 'caller' as parameter
+        //Here we are calling 'func' or 'show' function with context of 'obj2'
+
+        func.call(obj2); //output will be: '20' as 'this.a' means 'obj2.a';
+
+    </script>

@@ -1,0 +1,22 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <script >
+        //Shallow Merging using Object.assign
+        //Object.assign(target,source)
+
+        var state = {id:1,name:"Bilal", age:100,address:{city:'lahore'}};
+        var changeObj = {age:200,nic:'1234'};
+        var onlyAddObj = {postcode:'122'};
+        
+        state.address = Object.assign(state.address, onlyAddObj);
+
+        state = Object.assign(state,changeObj);
+        
+        console.log(state);
+    </script>
+</body>
+ 
+</html>
