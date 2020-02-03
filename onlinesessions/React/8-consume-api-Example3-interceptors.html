@@ -1,0 +1,144 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+        .mycontainer {
+          border:1px solid red;  
+          width: 200px;
+          float:left;
+          margin-left:3px;
+          padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        //Pass Token using interceptors
+
+        class Login extends React.Component {
+            login ='';
+            password='';
+            constructor(props){
+                super(props);
+                this.state = {message:''}
+            }
+            onLoginClicked = ()=> {
+
+                var dataToPost = {Login:this.login,Password:this.password};
+                var url = "https://localhost:44356/api/main/validateuser";
+                
+                axios.post(url, dataToPost)
+                     .then(r => {
+                         var m = "Invalid User"
+                         if(r.data && r.data.success == true){
+                             m = "Valid User";
+                             localStorage.setItem('token',r.data.token);
+                         }
+
+                         this.setState((cs)=> cs.message = m);
+
+                     })
+                     .catch(error => console.log(e));
+            }
+            render(){
+                return (
+                    <div>
+                        <h2>Login</h2>
+                        <label>Login:</label>
+                        <input type="text" onChange={(e)=>this.login = e.target.value } /><br />
+                        <label for="">Password:</label>
+                        <input type="password" onChange={(e)=>this.password = e.target.value } /><br />
+                        <button onClick ={this.onLoginClicked}>Login</button>
+                        {this.state.message}
+                    </div>
+                );
+            }
+        }
+
+        class Persons extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {persons:[]};
+            }
+            componentDidMount(){
+
+            var url = "https://localhost:44356/api/main/getpersons";
+                
+                var token = localStorage.getItem('token');
+                //Get Result and set it in state
+                axios.get(url)
+                .then(r => {
+                    console.log(r.data.data);
+                    this.setState(cs => ({persons: r.data.data}));
+                })
+                .catch(err => console.log(err));
+            }
+
+            render(){
+                return this.state.persons.map(p=>
+                
+                    <div key={p.id} className='mycontainer'>
+                        ID: {p.id} <br />
+                        Name: {p.name} <br />
+                        Age: {p.age} <br />
+                    </div>
+                
+                );
+            }
+        }
+
+        function SetAxiosInterceptors()
+        {
+            // Add a request interceptor
+            axios.interceptors.request.use(function (config) {
+                // Do something before request is sent
+                console.log(config);
+                if(config.url.indexOf('validateuser') > 0){
+                    return config;
+                }
+                else {
+                    debugger;
+                    var token = localStorage.getItem('token');
+                    config.headers['Authorization'] = "Bearer " + token;
+                }
+                return config;
+            }, function (error) {
+                // Do something with request error
+                return Promise.reject(error);
+            });
+
+            // Add a response interceptor
+            axios.interceptors.response.use(function (response) {
+                // Any status code that lie within the range of 2xx cause this function to trigger
+                // Do something with response data
+                return response;
+            }, function (error) {
+                // Any status codes that falls outside the range of 2xx cause this function to trigger
+                // Do something with response error
+                return Promise.reject(error);
+            });
+        }
+        //Created a top level component
+        function MyApp(){
+            SetAxiosInterceptors();
+
+            return (
+                <div class="maincontainer">
+                   <Login />
+                   <Persons />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>
+</body>
+ 
+</html>

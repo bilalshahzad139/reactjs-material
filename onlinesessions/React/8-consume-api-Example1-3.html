@@ -1,0 +1,82 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <!--https://github.com/axios/axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        /*
+        Task Detail
+        - Allow user to type a term to search
+        - Get Movies data from omdbapi.com
+        - Show Movies using Movie component
+        */
+
+        //Movie component
+        function Movie(props){
+            return (
+                <div className="movies">
+                    Title: <span>{props.movie.Title}</span> <br />
+                    Year: <span>{props.movie.Year}</span> <br />
+                    Type: <span>{props.movie.Type}</span> <br />
+                    <img src={props.movie.Poster} width="200px" height="200px" />
+                </div>
+            );
+        }
+
+        class Movies extends React.Component{
+            term = '';
+            constructor(props){
+                super(props);
+                this.state = {movies:[]}
+            }
+            onSearchChange = (e) => {
+                this.term = e.target.value;
+            }
+            onSearchHandler = () =>{
+                var url = "https://www.omdbapi.com/?apikey=b2b65064&s=" + this.term;
+                
+                //Get Result and set it in state
+                axios.get(url)
+                .then(r => 
+                    this.setState( s => s.movies = r.data.Search));
+            }
+            
+            render(){
+                return (
+                <div>
+                    Moive: <input type="text" onChange={this.onSearchChange} />
+                    <button onClick={this.onSearchHandler} >Search</button>
+                    <div>
+                        {this.state.movies.map(m=> <Movie key={m.Title} movie={m} /> )}
+                    </div>
+                </div>
+            );
+            }
+        }
+
+        //Created a top level component
+        function MyApp(){
+            
+            var url = "https://www.omdbapi.com/?apikey=b2b65064&s=batman";
+                
+            return (
+                <div className="maincontainer">
+                    <Movies />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>
+</body>
+ 
+</html>

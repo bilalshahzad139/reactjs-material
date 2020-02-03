@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <!--https://github.com/axios/axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        //Created a top level component
+        function MyApp(){
+            
+            var url = "https://www.omdbapi.com/?apikey=b2b65064&s=batman";
+            
+            //Get Request using axios. It returns 'Promises'
+            axios.get(url)
+                .then(r => console.log(r.data));
+                
+            return (
+                <div className="maincontainer">
+                    
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>
+</body>
+ 
+</html>

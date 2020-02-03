@@ -1,0 +1,71 @@
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script type='text/babel'>
+        //Login Validation through external API
+        
+        class Login extends React.Component {
+            login ='';
+            password='';
+            constructor(props){
+                super(props);
+                this.state = {message:''}
+            }
+            onLoginClicked = ()=> {
+
+                var dataToPost = {Login:this.login,Password:this.password};
+                var url = "https://localhost:44356/api/main/validateuser";
+                
+                axios.post(url, dataToPost)
+                     .then(r => {
+                         var m = "Invalid User"
+                         if(r.data && r.data.success == true){
+                             m = "Valid User";
+                         }
+
+                         this.setState((cs)=> cs.message = m);
+
+                     })
+                     .catch(error => console.log(e));
+            }
+            render(){
+                return (
+                    <div>
+                        <h2>Login</h2>
+                        <label>Login:</label>
+                        <input type="text" onChange={(e)=>this.login = e.target.value } /><br />
+                        <label for="">Password:</label>
+                        <input type="password" onChange={(e)=>this.password = e.target.value } /><br />
+                        <button onClick ={this.onLoginClicked}>Login</button>
+                        <button onClick ={this.onLoginClicked}>Clear</button><br />
+                        {this.state.message}
+                    </div>
+                );
+            }
+        }
+
+
+        //Created a top level component
+        function MyApp(){
+
+            return (
+                <div class="maincontainer">
+                   <Login />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MyApp />,document.getElementById('app'));
+    </script>
+</body>
+ 
+</html>
