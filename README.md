@@ -1,5 +1,5 @@
 
-# reacjs-material
+# reactjs-material
 
 Learn React from Scratch - Part 1 - Urdu/Hindi
 [Video Tutorial is available here](https://www.youtube.com/watch?v=V0xbP683NAc)
